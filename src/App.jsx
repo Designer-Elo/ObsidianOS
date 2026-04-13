@@ -1,6 +1,49 @@
 import React from 'react';
 
 function App() {
+  const [expandedId, setExpandedId] = React.useState(5);
+
+  const faqData = [
+    {
+      id: 1,
+      question: "What is ObsidianOS and how does it fit into my Web3 development workflow?",
+      answer: "ObsidianOS is a terminal-first operating system designed for Web3 builders. It integrates wallet management, node interactions, and smart contract deployments into a unified, high-performance environment, eliminating the need to jump between fragmented tools."
+    },
+    {
+      id: 2,
+      question: "Do I need to install anything locally to use ObsidianOS effectively?",
+      answer: "While ObsidianOS can be accessed via a lightweight client or browser, it is optimized for high-performance execution. You can install the core modules you need directly through the terminal without external dependencies."
+    },
+    {
+      id: 3,
+      question: "Which blockchain networks and protocols can I develop for using ObsidianOS?",
+      answer: "ObsidianOS supports all major EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism) as well as non-EVM protocols like Solana and Cosmos. Our modular architecture allows for custom protocol integrations."
+    },
+    {
+      id: 4,
+      question: "Is ObsidianOS open-source, and can I contribute or customize it for my own project?",
+      answer: "Yes, ObsidianOS is built with an open-core philosophy. You can contribute to the core OS, build custom modules, or fork individual components to suit your specific project needs."
+    },
+    {
+      id: 5,
+      question: "Who exactly is ObsidianOS meant for, and what kind of teams or developers benefit the most?",
+      answer: "ObsidianOS is built for Web3 developers across the board, whether you're a solo dev rapidly iterating on a dApp, part of a DeFi protocol team, or managing infrastructure across multiple chains. If you're tired of jumping between Remix, Hardhat, CLI tools, dashboards, and GitHub issues, ObsidianOS gives you a centralized system where code, testnets, transactions, and logs coexist. It's a powerful environment for builders who want speed, simplicity, and scalability in one place."
+    }
+  ];
+
+  const heroHeadingStyle = {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: 400,
+    fontSize: '61.27px',
+    lineHeight: '80px',
+    letterSpacing: '0%',
+    background: 'radial-gradient(50% 50% at 50% 50%, #FFFFFF 70.19%, #999999 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+    color: 'transparent',
+  };
+
   return (
     <div className="min-h-screen bg-[#090909] text-white selection:bg-primary/30 relative overflow-x-hidden w-full">
       {/* Light Effect Image relocated to root */}
@@ -47,15 +90,15 @@ function App() {
 
       {/* Responsive 1440px wrapper for absolute background Figma images */}
       <div className="absolute inset-x-0 top-0 w-full max-w-[1440px] mx-auto h-0 pointer-events-none z-0">
-        <img 
-          src="/Hero bg - Left.png" 
-          alt="Hero background left glow" 
+        <img
+          src="/Hero bg - Left.png"
+          alt="Hero background left glow"
           className="absolute max-w-none opacity-100"
           style={{ top: '20px', left: '-150px' }}
         />
-        <img 
-          src="/Hero bg - Right.png" 
-          alt="Hero background right glow" 
+        <img
+          src="/Hero bg - Right.png"
+          alt="Hero background right glow"
           className="absolute max-w-none opacity-100"
           style={{ top: '28.66px', left: '288.61px' }}
         />
@@ -86,21 +129,7 @@ function App() {
           </div>
 
           {/* Heading */}
-          <h1
-            className="mb-[20px]"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: '61.27px',
-              lineHeight: '64.97px',
-              letterSpacing: '0%',
-              background: 'radial-gradient(50% 50% at 50% 50%, #FFFFFF 70.19%, #999999 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              color: 'transparent',
-            }}
-          >
+          <h1 className="mb-[20px]" style={heroHeadingStyle}>
             Built for the Ones Who Build
           </h1>
 
@@ -127,7 +156,7 @@ function App() {
       </section>
 
       {/* Dashboard Mockup Section */}
-      <section className="w-full max-w-[1248px] mx-auto px-6 pb-32 relative z-20">
+      <section className="w-full max-w-[1248px] mx-auto px-6 pb-[48px] relative z-20 -mt-[10px]">
         <div className="relative mx-auto rounded-3xl flex items-center justify-center overflow-hidden">
           {/* The Dashboard Mockup Image */}
           <img
@@ -152,48 +181,48 @@ function App() {
       </section>
 
       {/* Core Features Section */}
-      <section className="w-full max-w-[1248px] mx-auto px-6 py-20 relative z-20 flex flex-col items-center">
+      <section className="w-full max-w-[1248px] mx-auto px-6 pt-[120px] pb-20 relative z-20 flex flex-col">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-start text-left mb-16 w-full">
           {/* Badge */}
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-20 border border-[#ff7135]/30 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative cursor-pointer hover:brightness-110 transition-all">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-20 border border-[#ff7135]/30 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative cursor-pointer hover:brightness-110 transition-all">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff7135" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             Explore Our Features
           </div>
 
           {/* Heading */}
-          <h2 className="text-[52px] leading-tight font-medium tracking-tight mb-[12px]">
-            <span className="text-white">Core </span>
-            <span className="text-gray-400">Features</span>
+          <h2 className="mb-[12px] text-left" style={heroHeadingStyle}>
+            Core Features
           </h2>
-          
-          <p className="text-[20px] text-gray-300 font-normal">
+
+          <p className="text-[20px] text-white font-normal">
             Power, Precision, Possibility.
           </p>
         </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] w-full">
-          
+
           {/* Top Wide Box: Modular Workflow */}
           <div className="md:col-span-2 rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden h-[453.82px]">
             {/* Dot Background */}
             <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none border-none shadow-none" style={{ top: '-143.94px', left: '252.9px', width: 'auto', height: 'auto' }} />
-            
-            <div className="relative z-10 w-full h-full flex flex-col justify-start items-start" style={{ paddingLeft: '60px', paddingTop: '40px' }}>
-              <div className="flex items-start gap-4 mb-8 mt-2">
+            <img src="/subtle light.png" alt="" className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-0" />
+
+            <div className="relative z-10 w-full h-full flex flex-col justify-start items-start" style={{ paddingLeft: '40px', paddingTop: '35px' }}>
+              <div className="flex items-start gap-4 mb-[22px]">
                 <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52.98px', height: '52.98px', borderRadius: '4.5px', border: '1px solid #242424' }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                 </div>
-                <div className="flex flex-col mt-1">
+                <div className="flex flex-col pt-[1px]">
                   <h3 className="text-[20px] font-medium text-[#ffffff] mb-1">Modular Workflow</h3>
-                  <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[400px]">
+                  <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[320px]">
                     Tailor your environment with containers, toolchains, and lightweight apps.
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-4" style={{ marginLeft: '68.98px' }}>
-                <button 
+                <button
                   className="text-white font-medium hover:brightness-110 transition flex items-center justify-center whitespace-nowrap"
                   style={{
                     width: '117.99217224121094px',
@@ -207,7 +236,7 @@ function App() {
                 >
                   Watch Demo
                 </button>
-                <button 
+                <button
                   className="text-white font-medium hover:brightness-110 shadow-[inset_0px_4px_3px_0px_rgba(255,255,255,0.5),_0px_0px_10px_0px_rgba(255,129,76,1)] transition flex items-center justify-center whitespace-nowrap bg-[#ff7135]"
                   style={{
                     height: '39.99217224121094px',
@@ -219,12 +248,12 @@ function App() {
                 </button>
               </div>
             </div>
-            
+
             {/* Dashboard Mockup - Exact absolute positioning, removing all native CSS clipping shadows/borders */}
-            <img 
-              src="/Core features dashboard.png" 
-              alt="Dashboard Modular Workflow" 
-              className="hidden md:block absolute z-0" 
+            <img
+              src="/Core features dashboard.png"
+              alt="Dashboard Modular Workflow"
+              className="hidden md:block absolute z-0"
               style={{
                 top: '50.98px',
                 left: '464.82px',
@@ -240,24 +269,27 @@ function App() {
 
           {/* Bottom Left Box: Chain-Synced Security */}
           <div className="col-span-1 rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden flex flex-col h-[453.82px]">
-             {/* Dot Background */}
+            {/* Dot Background */}
             <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none border-none shadow-none" style={{ top: '-95.27px', left: '-73.69px', width: 'auto', height: 'auto' }} />
-            
-            <div className="relative z-10 w-full h-full flex flex-col items-start justify-start" style={{ paddingLeft: '50px', paddingTop: '40px' }}>
-              <div className="flex items-start gap-4 mb-8 mt-2">
-                <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52.98px', height: '52.98px', borderRadius: '4.5px', border: '1px solid #242424' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </div>
-                <div className="flex flex-col mt-1">
-                  <h3 className="text-[20px] font-medium text-[#ffffff] mb-1">Chain-Synced Security</h3>
-                  <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[360px]">
-                    Built-in identity management and wallet support, right from boot.
-                  </p>
+            <img src="/subtle light.png" alt="" className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-0" />
+
+            <div className="relative z-10 w-full h-full flex flex-col">
+              <div className="flex flex-col items-start justify-start" style={{ paddingLeft: '40px', paddingTop: '35px' }}>
+                <div className="flex items-start gap-4 mb-[22px]">
+                  <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52.98px', height: '52.98px', borderRadius: '4.5px', border: '1px solid #242424' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <div className="flex flex-col pt-[1px]">
+                    <h3 className="text-[20px] font-medium text-[#ffffff] mb-1">Chain-Synced Security</h3>
+                    <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[360px]">
+                      Built-in identity management and wallet support, right from boot.
+                    </p>
+                  </div>
                 </div>
               </div>
-              
+
               {/* Security Image */}
-              <div className="mt-auto relative w-full flex-grow flex items-end justify-center pb-0">
+              <div className="mt-auto relative w-full flex-grow flex items-end justify-center pb-0 -translate-y-[10px]">
                 <img src="/Chain-Synched cards.png" alt="Chain-Synced Security Layout" className="max-w-none relative z-10" style={{ width: 'auto', height: 'auto', maxWidth: 'none', objectFit: 'none' }} />
               </div>
             </div>
@@ -265,22 +297,25 @@ function App() {
 
           {/* Bottom Right Box: Instant Dev Deploys */}
           <div className="col-span-1 rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden flex flex-col h-[453.82px]">
-             {/* Dot Background */}
+            {/* Dot Background */}
             <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none border-none shadow-none" style={{ top: '-181.93px', left: '128.95px', width: 'auto', height: 'auto' }} />
-            
-            <div className="relative z-10 w-full h-full flex flex-col items-start justify-start" style={{ paddingLeft: '50px', paddingTop: '40px' }}>
-              <div className="flex items-start gap-4 mb-8 mt-2">
-                <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52.98px', height: '52.98px', borderRadius: '4.5px', border: '1px solid #242424' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                </div>
-                <div className="flex flex-col mt-1">
-                  <h3 className="text-[20px] font-medium text-[#ffffff] mb-1">Instant Dev Deploys</h3>
-                  <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[360px]">
-                    Integrated Git + CLI = Push to live in seconds.
-                  </p>
+            <img src="/subtle light.png" alt="" className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-0" />
+
+            <div className="relative z-10 w-full h-full flex flex-col">
+              <div className="flex flex-col items-start justify-start" style={{ paddingLeft: '40px', paddingTop: '35px' }}>
+                <div className="flex items-start gap-4 mb-[22px]">
+                  <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52.98px', height: '52.98px', borderRadius: '4.5px', border: '1px solid #242424' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  </div>
+                  <div className="flex flex-col pt-[1px]">
+                    <h3 className="text-[20px] font-medium text-[#ffffff] mb-1">Instant Dev Deploys</h3>
+                    <p className="text-[#A7A7A7] text-[16px] leading-relaxed max-w-[360px]">
+                      Integrated Git + CLI = Push to live in seconds.
+                    </p>
+                  </div>
                 </div>
               </div>
-              
+
               {/* Instant Dev Deploys Image */}
               <div className="mt-auto relative w-full flex-grow flex items-center justify-center pb-0">
                 <img src="/Instant Devs Deploys image.png" alt="Dev Deploys Layout" className="max-w-none relative z-10" style={{ width: 'auto', height: 'auto', maxWidth: 'none', objectFit: 'none' }} />
@@ -290,96 +325,178 @@ function App() {
         </div>
 
         {/* Footer text */}
-        <p className="mt-20 text-[20px] text-gray-400 font-normal">
-          Run stable, run silent. No bloat. <span className="text-white">Just build.</span>
-        </p>
+        <div className="w-full flex justify-center mt-20">
+          <p
+            className="text-center"
+            style={{
+              width: '597px',
+              height: '65px',
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontSize: '29.99px',
+              lineHeight: '64.97px',
+              letterSpacing: '0%',
+              background: 'radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.46%, #999999 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              opacity: 1
+            }}
+          >
+            Run stable, run silent. No bloat. Just build.
+          </p>
+        </div>
       </section>
 
-      {/* Terminal Section */}
-      <section className="relative py-32 overflow-hidden flex flex-col items-center justify-center text-center">
-        {/* Glow behind terminal section */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none"></div>
+      <section className="relative pt-[28px] pb-32 flex flex-col items-center justify-center text-center overflow-visible">
+        {/* Background Images Wrapper - Mirroring Hero style */}
+        <div className="absolute inset-0 w-full max-w-[1440px] mx-auto pointer-events-none z-0">
+          <img
+            src="/Hero bg - Left.png"
+            alt=""
+            className="absolute max-w-none opacity-80"
+            style={{ top: '0', left: '268.61px', mixBlendMode: 'plus-lighter' }}
+          />
+          <img
+            src="/Hero bg - Right.png"
+            alt=""
+            className="absolute max-w-none opacity-80"
+            style={{ top: '0', right: '228.61px', mixBlendMode: 'plus-lighter' }}
+          />
+        </div>
+
+        {/* Bright Glow Effect - Matching Hero */}
+        <div
+          className="absolute pointer-events-none z-0 rounded-[100%]"
+          style={{
+            width: '800px',
+            height: '400px',
+            top: '34%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: 'rgba(255, 113, 53, 0.85)',
+            filter: 'blur(150px)',
+            mixBlendMode: 'plus-lighter'
+          }}
+        ></div>
         <div className="max-w-[1248px] w-full mx-auto px-6 relative z-10 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface/50 text-[13px] text-primary font-medium mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#FF7135]"></div>
-            DEVELOPER FIRST
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-20 border border-[#ff7135]/30 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative">
+            <div className="w-5 h-5 rounded-md bg-[#ff7135]/20 flex items-center justify-center">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="#ff7135" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            Live Preview
           </div>
-          <h2 className="text-[48px] leading-tight font-semibold tracking-tight text-gradient mb-4">
-            Your Terminal, Reimagined.
+          <h2 className="mb-4 text-center" style={heroHeadingStyle}>
+            Your Terminal. Reimagined.
           </h2>
-          <p className="text-[20px] text-[#A1A1AA] max-w-2xl font-normal mb-16">
-            An IDE experience inside your CLI.
+          <p className="text-[20px] text-white max-w-2xl font-normal mb-[44px]">
+            Explore development possibilities, LIVE
           </p>
 
-          <div className="relative w-full max-w-6xl rounded-2xl border border-border bg-surface aspect-[16/9] shadow-2xl flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-            <p className="text-gray-500 font-medium text-lg">Terminal Interface Mockup Placeholder</p>
+          <div className="relative w-full -mt-[30px]">
+            <img
+              src="/Terminal.png"
+              alt="ObsidianOS Terminal"
+              className="w-full h-auto rounded-xl"
+            />
           </div>
         </div>
       </section>
 
       {/* Differentiator Section */}
-      <section className="max-w-[1248px] w-full mx-auto px-6 py-32 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface/50 text-[13px] text-primary font-medium mb-6">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#FF7135]"></div>
-          WHY OBSIDIAN OS?
+      <section className="max-w-[1248px] w-full mx-auto px-6 pt-[78px] pb-32 flex flex-col items-center">
+        {/* Header Badge */}
+        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-10 border border-[#ff7135]/20 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative">
+          <div className="w-5 h-5 rounded-md bg-[#ff7135]/20 flex items-center justify-center">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ff7135" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </div>
+          Why ObsidianOS?
         </div>
-        <h2 className="text-[48px] leading-tight font-semibold tracking-tight text-white mb-4">
+        
+        {/* Section Heading */}
+        <h2 className="mb-4 text-center max-w-[800px] leading-tight" style={heroHeadingStyle}>
           What Makes ObsidianOS Different?
         </h2>
-        <p className="text-[20px] text-[#A1A1AA] max-w-2xl font-normal mb-16">
-          Built for true performance.
+        
+        {/* Subtext */}
+        <p className="text-[20px] text-white max-w-2xl font-normal mb-16 text-center">
+          Built For One, Solutions For All
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-5xl text-left">
-          {/* Large card 1 */}
-          <div className="rounded-2xl border border-border bg-surface p-8 pt-10 flex flex-col relative overflow-hidden group">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity opacity-0 group-hover:opacity-100"></div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+          
+          {/* Card 1: Built for Developers */}
+          <div className="rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden flex flex-col group min-h-[481.81px] h-[481.81px]">
+            {/* Dot Background */}
+            <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none opacity-40" style={{ top: '-100px', right: '-100px' }} />
+            
+            <div className="p-8 pt-10 relative z-10">
+              <div className="flex items-start gap-4 mb-1">
+                <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52px', height: '52px', borderRadius: '4.5px', border: '1px solid #242424' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <div className="flex flex-col pt-[1px]">
+                  <h3 className="text-[20px] font-medium text-white mb-1">Built for Developers</h3>
+                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                    Build, push, and deploy directly from your terminal. ObsidianOS works the way developers do.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-white">Built on Rust</h3>
             </div>
-            <p className="text-gray-400 text-base leading-relaxed mb-10">
-              Sub-millisecond latency. Safe concurrency. We rewrote the rules so you never have to wait.
-            </p>
-            <div className="mt-auto h-[150px] rounded-xl border border-border bg-black/50 overflow-hidden flex items-center justify-center">
-              <p className="text-sm text-gray-600">Performance Chart Placeholder</p>
+            {/* Visual Asset */}
+            <div className="mt-auto px-4 pb-0 flex justify-center w-full">
+               <img src="/Built for Devs.png" alt="" className="w-full h-auto object-contain scale-[1.02] origin-bottom" />
             </div>
           </div>
 
-          {/* Large card 2 */}
-          <div className="rounded-2xl border border-border bg-surface p-8 pt-10 flex flex-col relative overflow-hidden group">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity opacity-0 group-hover:opacity-100"></div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          {/* Card 2: Smart Resource Allocation */}
+          <div className="rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden flex flex-col group min-h-[481.81px] h-[481.81px]">
+            {/* Dot Background */}
+            <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none opacity-40" style={{ top: '-150px', left: '-50px' }} />
+            
+            <div className="p-8 pt-10 relative z-10">
+              <div className="flex items-start gap-4 mb-1">
+                <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52px', height: '52px', borderRadius: '4.5px', border: '1px solid #242424' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><path d="M22 12H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+                </div>
+                <div className="flex flex-col pt-[1px]">
+                  <h3 className="text-[20px] font-medium text-white mb-1">Smart Resource Allocation</h3>
+                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                    Let ObsidianOS recommend the best use of compute, storage, and memory.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-white">Deep ChatGPT Integration</h3>
             </div>
-            <p className="text-gray-400 text-base leading-relaxed mb-10">
-              Ask questions, generate scripts, and analyze logs without leaving your terminal context.
-            </p>
-            <div className="mt-auto h-[150px] rounded-xl border border-border bg-black/50 overflow-hidden flex items-center justify-center">
-              <p className="text-sm text-gray-600">AI Chat UI Placeholder</p>
+            
+            {/* Metrics Visual */}
+            <div className="mt-auto px-4 pb-0 flex justify-center w-full">
+               <img src="/Smart Resource Allocation.png" alt="" className="w-full h-auto object-contain origin-bottom" />
             </div>
           </div>
 
-          {/* Wide Card 3 */}
-          <div className="rounded-2xl border border-border bg-surface p-8 pt-10 flex flex-col relative overflow-hidden group lg:col-span-2">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity opacity-0 group-hover:opacity-100"></div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          {/* Card 3: Built with Zero Trust Principles (Wide) */}
+          <div className="md:col-span-2 rounded-[10px] border border-white/5 bg-[#0c0c0c] relative overflow-hidden flex flex-col md:flex-row min-h-[481.81px] h-[481.81px]">
+            {/* Dot Background */}
+            <img src="/Dot bg.png" alt="" className="absolute pointer-events-none z-0 max-w-none opacity-40" style={{ bottom: '-100px', left: '10%' }} />
+            
+            <div className="p-8 pt-10 relative z-10 md:w-1/2">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex items-center justify-center shrink-0" style={{ background: '#090909', width: '52px', height: '52px', borderRadius: '4.5px', border: '1px solid #242424' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-200"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg>
+                </div>
+                <div className="flex flex-col pt-[1px]">
+                  <h3 className="text-[20px] font-medium text-white mb-1">Built with Zero Trust Principles</h3>
+                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                    Every request, module is sandboxed. Role-based access, and hardened defaults by design.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-white">Infinite Local Memory</h3>
             </div>
-            <p className="text-gray-400 text-base leading-relaxed mb-10 max-w-xl">
-              Every command, output, and script you've ever run is automatically indexed, encrypted, and searchable forever.
-            </p>
-            <div className="h-[200px] rounded-xl border border-border bg-black/50 overflow-hidden flex items-center justify-center">
-              <p className="text-sm text-gray-600">Search History UI Placeholder</p>
+            {/* Visual Asset */}
+            <div className="md:w-1/2 flex items-center justify-center p-4">
+               <img src="/Zero Principles.png" alt="" className="w-full h-auto object-contain max-h-[400px]" />
             </div>
           </div>
 
@@ -387,144 +504,346 @@ function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-[1248px] w-full mx-auto px-6 py-32 max-w-3xl flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-surface/50 text-[13px] text-primary font-medium mb-6">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#FF7135]"></div>
-          FAQ
+      <section className="max-w-[1248px] w-full mx-auto px-6 pt-[38px] pb-32 flex flex-col items-center">
+        {/* Header Badge */}
+        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-10 border border-[#ff7135]/20 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative">
+           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff7135" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+           FAQ
         </div>
-        <h2 className="text-[48px] leading-tight font-semibold tracking-tight text-white mb-12 text-center">
+        
+        {/* Section Heading */}
+        <h2 className="mb-4 text-center max-w-[800px] leading-tight" style={heroHeadingStyle}>
           Frequently Asked Questions
         </h2>
+        
+        {/* Subtext */}
+        <p className="text-[20px] text-white max-w-2xl font-normal mb-16 text-center">
+          Questions Often Asked By ObsidianOS users
+        </p>
 
-        <div className="w-full flex flex-col gap-4">
-          {/* Accordion Item 1 */}
-          <div className="border border-border bg-surface rounded-xl overflow-hidden cursor-pointer hover:border-gray-700 transition-colors">
-            <div className="px-6 py-5 flex items-center justify-between">
-              <span className="font-medium text-gray-200">What makes Obsidian OS different from iTerm or Warp?</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-          </div>
-          {/* Accordion Item 2 */}
-          <div className="border border-border bg-surface rounded-xl overflow-hidden cursor-pointer hover:border-gray-700 transition-colors">
-            <div className="px-6 py-5 flex items-center justify-between">
-              <span className="font-medium text-gray-200">How does the ChatGPT integration work securely?</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-          </div>
-          {/* Accordion Item 3 */}
-          <div className="border border-border bg-surface rounded-xl overflow-hidden cursor-pointer hover:border-gray-700 transition-colors">
-            <div className="px-6 py-5 flex items-center justify-between">
-              <span className="font-medium text-gray-200">Can I self-host Obsidian OS on my own infrastructure?</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-          </div>
-          {/* Accordion Item 4 */}
-          <div className="border border-border bg-surface rounded-xl overflow-hidden cursor-pointer hover:border-gray-700 transition-colors">
-            <div className="px-6 py-5 flex items-center justify-between">
-              <span className="font-medium text-gray-200">Is there a limit to the local search history?</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-          </div>
-          {/* Accordion Item 5 */}
-          <div className="border border-border bg-surface rounded-xl overflow-hidden cursor-pointer hover:border-gray-700 transition-colors">
-            <div className="px-6 py-5 flex items-center justify-between">
-              <span className="font-medium text-gray-200">Do you support custom bash/zsh configurations?</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-40 overflow-hidden flex flex-col items-center justify-center text-center mt-20 border-border">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/20 blur-[150px] rounded-full mix-blend-screen pointer-events-none"></div>
-        <div className="max-w-[1248px] w-full mx-auto px-6 relative z-10 flex flex-col items-center">
-          <h2 className="text-[56px] leading-tight font-semibold tracking-tight text-white mb-6">
-            Ready to Reprogram Your Workflow?
-          </h2>
-          <p className="text-[20px] text-[#A1A1AA] max-w-2xl font-normal mb-10">
-            Join 10,000+ engineers building faster with ObsidianOS.
-          </p>
-          <button
-            className="text-white font-semibold flex items-center justify-center transition-all hover:brightness-110 w-fit whitespace-nowrap"
-            style={{
-              height: '40px',
-              borderRadius: '5px',
-              background: 'rgba(255, 113, 53, 1)',
-              boxShadow: 'inset 0px 4px 3px 0px rgba(255, 255, 255, 0.5), 0px 0px 10px 0px rgba(255, 129, 76, 1)',
-              padding: '0 36px',
-              gap: '10px'
-            }}
-          >
-            Get Started for Free
-          </button>
-        </div>
-
-        {/* Background Text Watermark */}
-        <div className="absolute bottom-[-5%] left-0 right-0 flex justify-center pointer-events-none overflow-hidden h-[300px]">
-          <span className="text-[18vw] font-bold leading-none text-white/5 whitespace-nowrap select-none">ObsidianOS</span>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border relative z-20">
-        <div className="max-w-[1248px] w-full mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-            <div className="md:col-span-2">
-              <div className="font-semibold text-xl flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-md bg-gradient-to-br from-primary to-orange-700 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-black rotate-45"></div>
+        {/* Accordion Container */}
+        <div className="w-full max-w-[859.66px] space-y-4">
+          {faqData.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
+              className={`rounded-[10px] border border-white/5 bg-[#0c0c0c] transition-all duration-300 cursor-pointer overflow-hidden group ${expandedId === item.id ? 'bg-[#111111] border-white/10' : 'hover:border-white/10'}`}
+            >
+              {/* Question Row */}
+              <div
+                className="px-8 flex items-center justify-between transition-all"
+                style={{ height: '78.97px' }}
+              >
+                <span className="text-[18px] font-medium text-white/90 leading-tight">
+                  {item.question}
+                </span>
+                <div className={`shrink-0 transition-transform duration-300 ${expandedId === item.id ? 'rotate-90 text-white' : 'text-gray-500 group-hover:text-white'}`}>
+                  {expandedId === item.id ? (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10"></path><path d="M17 17V7H7"></path></svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10"></path><path d="M17 17V7H7"></path></svg>
+                  )}
                 </div>
-                Obsidian <span className="text-gray-400">OS</span>
               </div>
-              <p className="text-gray-500 text-sm mb-6 max-w-xs leading-relaxed">
-                The terminal OS built for the modern era of software engineering.
-              </p>
-              <div className="flex items-center gap-4">
-                {/* Social icons placeholders */}
-                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors"><svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg></div>
-                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors"><svg className="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg></div>
+
+              {/* Answer Content */}
+              <div
+                className={`transition-all duration-300 ease-in-out px-8 text-left overflow-hidden ${expandedId === item.id ? 'max-h-[500px] pb-8 opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <div className="pt-2 border-t border-white/5 text-gray-400 text-[16px] leading-relaxed">
+                  {item.answer}
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <div>
-              <h4 className="text-white font-medium mb-4">Product</h4>
-              <ul className="flex flex-col gap-3 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-primary transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Changelog</a></li>
-              </ul>
-            </div>
+      {/* CTA Section - Pre-Footer */}
+      <section className="max-w-[1200px] w-full mx-auto px-6 mt-[38px] mb-[210px]">
+        <div 
+          className="relative w-full overflow-hidden flex flex-col items-center justify-center text-center rounded-[10px] border border-[#242424] bg-[#0c0c0c]"
+          style={{ height: '417.8px' }}
+        >
+          {/* Hero Background Images - Integrated into CTA */}
+          <img
+            src="/Hero bg - Left.png"
+            alt=""
+            className="absolute max-w-none opacity-40 pointer-events-none"
+            style={{ 
+              top: '-150px', 
+              left: '-300px', 
+              width: '1200px',
+              mixBlendMode: 'plus-lighter',
+              transform: 'scale(1.3)'
+            }}
+          />
+          <img
+            src="/Hero bg - Right.png"
+            alt=""
+            className="absolute max-w-none opacity-40 pointer-events-none"
+            style={{ 
+              top: '-150px', 
+              right: '-300px', 
+              width: '1200px',
+              mixBlendMode: 'plus-lighter',
+              transform: 'scale(1.3)'
+            }}
+          />
 
-            <div>
-              <h4 className="text-white font-medium mb-4">Company</h4>
-              <ul className="flex flex-col gap-3 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
-              </ul>
-            </div>
+          {/* Prominent Glow Effect (Matches Hero) */}
+          <div
+            className="absolute pointer-events-none z-0 rounded-[100%]"
+            style={{
+              width: '600px',
+              height: '300px',
+              top: 'calc(50% + 130px)',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              background: 'rgba(255, 113, 53, 0.80)',
+              filter: 'blur(120px)',
+              mixBlendMode: 'plus-lighter'
+            }}
+          ></div>
 
-            <div>
-              <h4 className="text-white font-medium mb-4">Legal</h4>
-              <ul className="flex flex-col gap-3 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Security</a></li>
-              </ul>
-            </div>
+          {/* Bottom Glow Image Layer */}
+          <div className="absolute bottom-0 left-0 right-0 h-full pointer-events-none z-0">
+            <img 
+              src="/CTA Light.png" 
+              alt="" 
+              className="w-full h-full object-bottom object-contain"
+            />
           </div>
 
-          <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-            <p>© 2024 Obsidian OS Inc. All rights reserved.</p>
-            <div className="flex items-center gap-6 mt-4 md:mt-0">
-              <span>System Status: <span className="text-green-500">All systems operational</span></span>
-            </div>
+          {/* Content Layer */}
+          <div className="relative z-10 flex flex-col items-center px-4 max-w-[800px]">
+            <h2 className="mb-6 text-center mx-auto" style={heroHeadingStyle}>
+              Ready to Reprogram <br /> Your Workflow?
+            </h2>
+            <p className="text-white text-[18px] md:text-[20px] font-medium mb-10 opacity-90">
+              Limited slots. No fluff. Just code.
+            </p>
+            
+            {/* Button */}
+            <button
+              className="text-white font-semibold flex items-center justify-center transition-all hover:brightness-110 active:scale-95 group relative overflow-hidden"
+              style={{
+                height: '40px',
+                borderRadius: '5px',
+                background: 'rgba(255, 113, 53, 1)',
+                boxShadow: 'inset 0px 4px 3px 0px rgba(255, 255, 255, 0.5), 0px 0px 10px 0px rgba(255, 129, 76, 1)',
+                padding: '0 32px',
+                gap: '10px'
+              }}
+            >
+              Get ObsidianOS Alpha Access
+            </button>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* Footer Wrapper with Watermark behind */}
+      <div className="relative w-full mt-40 pt-20">
+        {/* Large Background Watermark Text - Positioned behind and cut off */}
+        <div 
+          className="absolute left-0 right-0 pointer-events-none z-0 overflow-hidden" 
+          style={{ 
+            height: '246px', 
+            top: '-80px', 
+            opacity: 1,
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <span style={{
+            fontFamily: 'Inter',
+            fontWeight: 600,
+            fontSize: '203.66px',
+            lineHeight: '100%',
+            background: 'linear-gradient(0deg, #090909 29.59%, #727272 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            whiteSpace: 'nowrap',
+            WebkitTextStroke: '0.96px rgba(138, 138, 138, 0.2)'
+          }}>
+            ObsidianOs
+          </span>
+        </div>
+
+        {/* Footer Container - Full Width */}
+        <footer 
+          className="relative w-full z-10" 
+          style={{ 
+            height: '623.75px', 
+            background: 'rgba(12, 12, 12, 1)',
+            padding: '1px 0', 
+            borderTop: '1px solid transparent',
+            position: 'relative'
+          }}
+        >
+          {/* Top Border Gradient Simulation */}
+          <div className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none" style={{
+            background: 'radial-gradient(75.76% 75.76% at 48.19% 24.24%, #8A8A8A 0%, rgba(36, 36, 36, 0) 100%)',
+          }} />
+
+          {/* Footer Content Wrapper - Fixed Center Width */}
+          <div className="max-w-[1248px] mx-auto px-6 h-full flex flex-col pt-[80px] pb-6">
+            
+            {/* Top Row: Logo and Link Columns - Flex with reduced gap */}
+            <div className="flex flex-col md:flex-row justify-between items-start gap-x-[12px] mb-12">
+              <div className="max-w-[340px]">
+                <div className="text-[24px] font-bold text-[#ff7135] mb-4">ObsidianOS</div>
+                <p className="text-[#A7A7A7] text-[14px] leading-relaxed max-w-[320px]">
+                  The modular OS for Web3 builders. Streamline your stack, deploy faster.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-white font-semibold mb-6">Product</h4>
+                <ul className="flex flex-col gap-4 text-[14px] text-[#A7A7A7]">
+                  <li><a href="#" className="hover:text-white transition-colors">Dashboard</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Terminal</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Smart Contract Kit</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Node Manager</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Wallet Sync</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-white font-semibold mb-6">Developers</h4>
+                <ul className="flex flex-col gap-4 text-[14px] text-[#A7A7A7]">
+                  <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Changelog</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Starter Kits</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Obsidian CLI</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-white font-semibold mb-6">Company</h4>
+                <ul className="flex flex-col gap-4 text-[14px] text-[#A7A7A7]">
+                  <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Press Kit</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-white font-semibold mb-6">Resources</h4>
+                <ul className="flex flex-col gap-4 text-[14px] text-[#A7A7A7]">
+                  <li><a href="#" className="hover:text-white transition-colors">Guides & Tutorials</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Status Page</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Community Forum</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Release Notes</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Join Discord</a></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Line 1: Divider */}
+            <div className="w-full mb-12">
+              <div 
+                style={{ 
+                  width: '100%', 
+                  height: '0.5px', 
+                  background: '#2C2C2C',
+                  opacity: 1 
+                }} 
+              />
+            </div>
+
+            {/* Middle Row: Open Source and Subscription */}
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-auto">
+              <div className="flex flex-col gap-2">
+                <h4 className="text-white text-[18px] font-semibold">Open Source</h4>
+                <p className="text-[#A7A7A7] text-[14px] leading-relaxed max-w-[340px]">
+                  Built by devs, for devs. ObsidianOS is an open-source project supporting multichain development.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4 items-start text-left">
+                <p className="text-[#A7A7A7] text-[14px] leading-relaxed max-w-[380px]">
+                  Get product updates, chain support releases, and engineering deep dives.
+                </p>
+                <div className="flex items-center gap-3">
+                  <div 
+                    className="relative flex items-center px-1"
+                    style={{
+                      width: '242.9px',
+                      height: '39.98px',
+                      background: 'rgba(12, 12, 12, 1)',
+                      borderRadius: '10px',
+                      border: '1px solid transparent',
+                      backgroundClip: 'padding-box',
+                      position: 'relative'
+                    }}
+                  >
+                    {/* Input Border Gradient Simulation */}
+                    <div className="absolute inset-0 rounded-[10px] pointer-events-none" style={{
+                      padding: '1px',
+                      margin: '-1px',
+                      background: 'radial-gradient(75.76% 75.76% at 48.19% 24.24%, #8A8A8A 0%, #242424 100%)',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude'
+                    }} />
+                    <input 
+                      type="email" 
+                      placeholder="Email address..." 
+                      className="bg-transparent border-none outline-none text-[#A7A7A7] text-[14px] px-3 w-full h-full relative z-10"
+                    />
+                  </div>
+                  <button
+                    className="text-white font-semibold flex items-center justify-center transition-all hover:brightness-110 shadow-[inset_0px_4px_3px_0px_rgba(255,255,255,0.5),_0px_0px_10px_0px_rgba(255,129,76,1)] bg-[#ff7135]"
+                    style={{
+                      height: '39.98px',
+                      borderRadius: '10px',
+                      padding: '0 24px',
+                    }}
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Line 2: Divider */}
+            <div className="w-full mb-8">
+              <div 
+                style={{ 
+                  width: '100%', 
+                  height: '0.5px', 
+                  background: '#2C2C2C',
+                  opacity: 1 
+                }} 
+              />
+            </div>
+
+            {/* Socials and Copyright Row */}
+            <div className="flex flex-col md:flex-row justify-between items-center w-full">
+              <p className="text-[#A7A7A7] text-[14px]">© 2025 ObsidianOS.</p>
+              <div className="flex items-center gap-[19px] mt-4 md:mt-0">
+                <a href="#" className="text-white hover:opacity-80 transition-opacity">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </a>
+                <a href="#" className="text-white hover:opacity-80 transition-opacity font-bold text-lg">X</a>
+                <a href="#" className="text-white hover:opacity-80 transition-opacity">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </a>
+                <a href="#" className="text-white hover:opacity-80 transition-opacity">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.27,4.73C17.77,4.05,16.18,3.52,14.51,3.19C14.3,3.56,14.07,4.04,13.9,4.44C12.16,4.18,10.43,4.18,8.72,4.44C8.55,4.04,8.32,3.56,8.11,3.19C6.44,3.52,4.85,4.05,3.35,4.73C0.32,9.27-0.5,13.69,0.1,18.06C2.1,19.55,4.03,20.45,5.92,21.05C6.39,20.41,6.81,19.73,7.16,19.01C6.48,18.75,5.83,18.43,5.22,18.06C5.39,17.94,5.55,17.81,5.71,17.68C9.4,19.38,13.38,19.38,17.03,17.68C17.19,17.81,17.35,17.94,17.51,18.06C16.9,18.43,16.25,18.75,15.57,19.01C15.92,19.73,16.34,20.41,16.81,21.05C18.7,20.45,20.63,19.55,22.63,18.06C23.35,12.69,21.43,8.34,19.27,4.73ZM8.33,15.54C7.19,15.54,6.26,14.49,6.26,13.19C6.26,11.89,7.17,10.84,8.33,10.84C9.5,10.84,10.43,11.89,10.41,13.19C10.41,14.49,9.5,15.54,8.33,15.54ZM14.4,15.54C13.26,15.54,12.33,14.49,12.33,13.19C12.33,11.89,13.26,10.84,14.4,10.84C15.56,10.84,16.5,11.89,16.48,13.19C16.48,14.49,15.56,15.54,14.4,15.54Z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </footer>
+      </div>
 
     </div>
   );
