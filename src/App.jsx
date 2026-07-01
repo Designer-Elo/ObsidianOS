@@ -1,7 +1,40 @@
 import React from 'react';
 
+function useReveal(threshold = 0.15) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, visible];
+}
+
+const revealClass = (visible) =>
+  `transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`;
+
 function App() {
   const [expandedId, setExpandedId] = React.useState(5);
+
+  const [dashboardRef, dashboardVisible] = useReveal();
+  const [featuresRef, featuresVisible] = useReveal();
+  const [terminalRef, terminalVisible] = useReveal();
+  const [differentiatorRef, differentiatorVisible] = useReveal();
+  const [faqRef, faqVisible] = useReveal();
+  const [ctaRef, ctaVisible] = useReveal();
 
   const faqData = [
     {
@@ -156,7 +189,7 @@ function App() {
       </section>
 
       {/* Dashboard Mockup Section */}
-      <section className="w-full max-w-[1248px] mx-auto px-6 pb-[48px] relative z-20 -mt-[10px]">
+      <section ref={dashboardRef} className={`w-full max-w-[1248px] mx-auto px-6 pb-[48px] relative z-20 -mt-[10px] ${revealClass(dashboardVisible)}`}>
         <div className="relative mx-auto rounded-3xl flex items-center justify-center overflow-hidden">
           {/* The Dashboard Mockup Image */}
           <img
@@ -181,7 +214,7 @@ function App() {
       </section>
 
       {/* Core Features Section */}
-      <section className="w-full max-w-[1248px] mx-auto px-6 pt-[120px] pb-20 relative z-20 flex flex-col">
+      <section ref={featuresRef} className={`w-full max-w-[1248px] mx-auto px-6 pt-[120px] pb-20 relative z-20 flex flex-col ${revealClass(featuresVisible)}`}>
         {/* Header */}
         <div className="flex flex-col items-start text-left mb-16 w-full">
           {/* Badge */}
@@ -349,7 +382,7 @@ function App() {
         </div>
       </section>
 
-      <section className="relative pt-[28px] pb-32 flex flex-col items-center justify-center text-center overflow-visible">
+      <section ref={terminalRef} className={`relative pt-[28px] pb-32 flex flex-col items-center justify-center text-center overflow-visible ${revealClass(terminalVisible)}`}>
         {/* Background Images Wrapper - Mirroring Hero style */}
         <div className="absolute inset-0 w-full max-w-[1440px] mx-auto pointer-events-none z-0">
           <img
@@ -405,7 +438,7 @@ function App() {
       </section>
 
       {/* Differentiator Section */}
-      <section className="max-w-[1248px] w-full mx-auto px-6 pt-[78px] pb-32 flex flex-col items-center">
+      <section ref={differentiatorRef} className={`max-w-[1248px] w-full mx-auto px-6 pt-[78px] pb-32 flex flex-col items-center ${revealClass(differentiatorVisible)}`}>
         {/* Header Badge */}
         <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-10 border border-[#ff7135]/20 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative">
           <div className="w-5 h-5 rounded-md bg-[#ff7135]/20 flex items-center justify-center">
@@ -504,7 +537,7 @@ function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-[1248px] w-full mx-auto px-6 pt-[38px] pb-32 flex flex-col items-center">
+      <section ref={faqRef} className={`max-w-[1248px] w-full mx-auto px-6 pt-[38px] pb-32 flex flex-col items-center ${revealClass(faqVisible)}`}>
         {/* Header Badge */}
         <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff7135] bg-opacity-10 border border-[#ff7135]/20 text-white text-[13px] font-medium mb-[12px] backdrop-blur-sm relative">
            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff7135" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -560,7 +593,7 @@ function App() {
       </section>
 
       {/* CTA Section - Pre-Footer */}
-      <section className="max-w-[1200px] w-full mx-auto px-6 mt-[38px] mb-[210px]">
+      <section ref={ctaRef} className={`max-w-[1200px] w-full mx-auto px-6 mt-[38px] mb-[210px] ${revealClass(ctaVisible)}`}>
         <div 
           className="relative w-full overflow-hidden flex flex-col items-center justify-center text-center rounded-[10px] border border-[#242424] bg-[#0c0c0c]"
           style={{ height: '417.8px' }}
